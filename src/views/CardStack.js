@@ -281,10 +281,10 @@ class CardStack extends Component {
           ? GESTURE_RESPONSE_DISTANCE_VERTICAL
           : GESTURE_RESPONSE_DISTANCE_HORIZONTAL;
         // GESTURE_RESPONSE_DISTANCE is about 30 or 35. Or 135 for modals
-        if (screenEdgeDistance > gestureResponseDistance) {
-          // Reject touches that started in the middle of the screen
-          return false;
-        }
+        // if (screenEdgeDistance > gestureResponseDistance) {
+        //   // Reject touches that started in the middle of the screen
+        //   return false;
+        // }
 
         const hasDraggedEnough = Math.abs(currentDragDistance) >
           RESPOND_THRESHOLD;
