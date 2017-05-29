@@ -266,6 +266,7 @@ class CardStack extends Component {
           ? index
           : this._immediateIndex;
         const currentDragDistance = gesture[isVertical ? 'dy' : 'dx'];
+        const currentDragOtherDistance = gesture[isVertical ? 'dx' : 'dy'];
         const currentDragPosition = event.nativeEvent[
           isVertical ? 'pageY' : 'pageX'
         ];
@@ -285,6 +286,10 @@ class CardStack extends Component {
         //   // Reject touches that started in the middle of the screen
         //   return false;
         // }
+        if (currentDragDistance < currentDragOtherDistance * 2) {
+          // Reject touches if the draggin is not significant in one direction
+          return false;
+        }
 
         const hasDraggedEnough = Math.abs(currentDragDistance) >
           RESPOND_THRESHOLD;
